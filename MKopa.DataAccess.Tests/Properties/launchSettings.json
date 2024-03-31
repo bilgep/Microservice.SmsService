@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MKopa.DataAccess.Tests": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

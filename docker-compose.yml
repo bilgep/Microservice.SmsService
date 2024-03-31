@@ -1,0 +1,39 @@
+version: '3.4'
+
+services:
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+     - 5672:5672
+     - 15672:15672
+    healthcheck:
+      test: [ "CMD", "nc", "-z", "localhost", "5672" ]
+      interval: 5s
+      timeout: 15s
+      retries: 1
+
+
+  mkopa.smsproducerclient:
+    image: ${DOCKER_REGISTRY-}mkopasmsproducerclient
+    build:
+      context: .
+      dockerfile: MKopa.SmsProducerClient/Dockerfile
+    depends_on:
+        - rabbitmq
+    deploy:
+      mode: replicated
+      replicas: 1
+
+
+  mkopa.smsservice:
+    image: ${DOCKER_REGISTRY-}mkopasmsservice
+    build:
+      context: .
+      dockerfile: MKopa.SmsService/Dockerfile
+    depends_on:
+        - rabbitmq
+    deploy:
+      mode: replicated
+      replicas: 1 

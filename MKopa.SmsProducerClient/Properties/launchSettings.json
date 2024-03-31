@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MKopa.SmsProducerClient": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
