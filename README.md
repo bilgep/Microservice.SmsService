@@ -27,7 +27,6 @@ The project develops a simple microservice that functions as a wrapper around th
 * In asynchronous communication, it’s important to address negative scenarios, such as unconsumed messages, using various techniques. One such technique involves using a dead-letter queue at the broker level, coupled with dead-letter processing logic within applications. In this project, although the distributed application framework automatically creates dead-letter queues, operations for handling these queues have been deliberately excluded for simplicity.
 * Integration tests are not included in this project as its primary objective is to provide an abstract solution intended for later integration tasks.
 * Unit tests don't cover the whole application due to time limitations.
-* The 3rd party SMS sender provider API was created as a prototype for demonstration purposes.
 * Observability patterns and error handling patterns are not included in the project for simplicity. Only local (not integrated with observability pattern) error-handling scenarios are implemented.
 * A toggle pattern that is used in conjunction with the options pattern would help an application to be more flexible in responding to new requirements. This pattern is not applied due to simplicity purposes.
 
